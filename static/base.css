@@ -1,0 +1,39 @@
+
+body {
+	padding-top: 55px;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.body-container .left-gutter {
+  flex: 0 0 200px;
+    border-right: 1px solid #dddddd;
+    padding: 0px;
+
+}
+
+.body-container .right-gutter {
+  flex: 0 0 200px;
+  padding: 0px;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+
+h2 {
+	font-size: 15px;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+h4 {
+	font-size: 13px;
+}
+

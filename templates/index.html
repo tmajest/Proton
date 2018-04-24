@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="content">
+    <div class="feed-header">
+      <h1 class="all-feeds">All feeds</h1>
+      <p class="all-feeds-subtitle">What's new today</p>
+    </div>
+    <div class="feeds-container">
+        {% include "feed.html" %}
+    </div>
+  </div>
+{% endblock %}
