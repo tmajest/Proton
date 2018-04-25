@@ -1,22 +1,5 @@
-from datetime import datetime, timezone
-from dateutil import tz
-import pdb
-
-DATETIME_FORMATS = [
-    '%a, %d %b %Y %H:%M:%S %z',
-    '%a, %d %b %Y %H:%M:%S %Z'
-]
-
-def parse_date(date_str):
-    """
-    Try parsing the date string using the supported datetime formats.
-    """
-    entry_date = None
-    for fmt in DATETIME_FORMATS:
-        try:
-            return datetime.strptime(date_str, fmt).replace(tzinfo=tz.tzutc())
-        except:
-            pass
+from datetime import datetime
+from dateutil import tz, parser
 
 def get_time_str(date):
     """

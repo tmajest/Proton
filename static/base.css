@@ -9,14 +9,13 @@ body {
 }
 
 .body-container .left-gutter {
-  flex: 0 0 200px;
-    border-right: 1px solid #dddddd;
-    padding: 0px;
-
+  flex: 0 0 240px;
+  border-right: 1px solid #dddddd;
+  padding: 0px;
+  background-color: white;
 }
 
 .body-container .right-gutter {
-  flex: 0 0 200px;
   padding: 0px;
 }
 

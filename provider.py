@@ -1,8 +1,8 @@
 from feed import Feed, FeedEntry
+from dateutil import parser
 
 import db_utils
 import feedparser
-import utils
 
 FEED_QUERY = 'select name, feedlink, sitelink from feed'
 
@@ -58,7 +58,7 @@ def get_entries(feeds):
             entry_name = entry_xml.title
             entry_link = entry_xml.link
             entry_description = entry_xml.get('summary', '')
-            entry_date = utils.parse_date(entry_xml.get('published', ''))
+            entry_date = parser.parse(entry_xml.get('published', ''))
             entry = FeedEntry(feed, entry_name, entry_link, entry_description, entry_date)
             entries.append(entry)
 
