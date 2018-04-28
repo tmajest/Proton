@@ -3,23 +3,25 @@
   {% if entries %}
     {% for entry in entries %}
       <div class="entry-container">
-        <a href="{{ entry.link }}">
         <div class="entry-info">
-          <div class="feed-name">
-            <h2>{{ entry.feed.name }}</h2>
-          </div>
+          <a href="{{ entry.feed.link }}">
+            <div class="feed-name">
+              <h2>{{ entry.feed.name }}</h2>
+            </div>
+          </a>
           <div class="entry-date">
             <h4>{{ get_time_str(entry.date) }}</h4>
           </div>
         </div>
-        <div class="entry-row">
-          <h3>{{ entry.name }}</h3>
-        </div>
-        {% if entry.description %}
-          <div class="entry-description">
-              {{ entry.description | striptags }}
+        <a href="{{ entry.link }}">
+          <div class="entry-contents">
+              <h3>{{ entry.name }}</h3>
+              {% if entry.description %}
+                <div class="entry-description">
+                    {{ entry.description | striptags }}
+                </div>
+              {% endif %}
           </div>
-        {% endif %}
         </a>
       </div>
     {% endfor %}
