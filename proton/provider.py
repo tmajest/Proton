@@ -6,28 +6,42 @@ from .db_utils import get_db
 
 import feedparser
 
-FEED_QUERY = 'select name, feedlink, sitelink from feed'
+FEEDS_QUERY = 'select name, feedlink, sitelink from feed'
+FEED_QUERY = 'select name, feedlink, sitelink from feed where name = ?'
 
-def get_feeds(path):
+def get_feeds():
     """
     Get all feeds in the given database. Fetch each RSS/Atom feed and
     parse their entries.
     """
-    db = get_db(path)
-    cursor = db.execute(FEED_QUERY)
+    db = get_db()
+    cursor = db.execute(FEEDS_QUERY)
     rows = cursor.fetchall()
     feeds = []
     
     for row in rows:
         name = row['name']
         feedlink = row['feedlink']
-        sitelink = ''
-        if 'sitelink' in row.keys():
-            sitelink = row['sitelink']
+        sitelink = '' if 'sitelink' not in row.keys() else row['sitelink']
+
         feed = Feed(name, feedlink, sitelink)
         feeds.append(feed)
 
     return feeds
+
+def get_feed(name):
+    """
+    Get RSS feed by name.
+    """
+    db = get_db()
+    cursor = db.execute(FEED_QUERY, (name,))
+    row = cursor.fetchone()
+    if row:
+        name = row['name']
+        feedlink = row['feedlink']
+        sitelink = '' if 'sitelink' not in row.keys() else row['sitelink']
+
+        return Feed(name, feedlink, sitelink)
 
 def get_entries(feeds):
     """

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  {% if feed and entries %}
+    <a href="{{ feed.site_link }}">
+      <div class="feed-header">
+          <div class="feed-info">
+            <h1>{{ feed.name }}</h2>
+          </div>
+        <p>{{ feed.description }}</p>
+      </div>
+    </a>
+    {% include "feed.html" %}
+  {% endif %}
+</div>
+{% endblock %}

@@ -13,12 +13,13 @@ def connect_db(path):
     rv.row_factory = sqlite3.Row
     return rv
 
-def get_db(path):
+def get_db():
     """
     Gets a connection to the databse. Creates it if one does not already exist and
     stores it in the g object.
     """
     if 'sqlite_db' not in g:
+        path = current_app.config["DATABASE_FILE"]
         g.sqlite_db = connect_db(path)
 
     return g.sqlite_db

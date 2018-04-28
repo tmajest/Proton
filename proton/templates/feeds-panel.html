@@ -5,7 +5,7 @@
   </div>
   {%- for feed in feeds -%}
     <div class="feeds-panel-item">
-      <a href="">{{ feed.name }}</a>
+      <a href="{{ url_for('proton.feed_details', name=feed.name) }}">{{ feed.name }}</a>
     </div>
   {% endfor %}
 </div>
