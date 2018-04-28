@@ -6,12 +6,13 @@ setup(
 	name="Proton",
 	version=VERSION,
 	packages=find_packages(),
+    include_package_data=True,
 	install_requires=[
 		'flask',
         'python-dateutil',
         'feedparser',
 	],
 	author="Tony Majestro",
-	description="Site that aggregates my rss feeds",
+	description="Site that aggregates rss feeds",
 )
     

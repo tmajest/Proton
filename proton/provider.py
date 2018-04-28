@@ -1,17 +1,19 @@
-from feed import Feed, FeedEntry
+from flask import g
 from dateutil import parser
 
-import db_utils
+from .feed import Feed, FeedEntry
+from .db_utils import get_db
+
 import feedparser
 
 FEED_QUERY = 'select name, feedlink, sitelink from feed'
 
-def get_feeds(path, g):
+def get_feeds(path):
     """
     Get all feeds in the given database. Fetch each RSS/Atom feed and
     parse their entries.
     """
-    db = db_utils.get_db(path, g)
+    db = get_db(path)
     cursor = db.execute(FEED_QUERY)
     rows = cursor.fetchall()
     feeds = []
