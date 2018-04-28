@@ -17,7 +17,7 @@
         </div>
         {% if entry.description %}
           <div class="entry-description">
-              {{ entry.description|safe }}
+              {{ entry.description | striptags }}
           </div>
         {% endif %}
         </a>
