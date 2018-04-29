@@ -6,6 +6,7 @@ Install
 -------
 Installation directions. Tested using Linux Mint 18.3.
 
+::
     # Clone the repository
     git clone https://github.com/tonymajestro/Proton.git
 
@@ -19,6 +20,7 @@ Installation directions. Tested using Linux Mint 18.3.
 Run
 ---
 
+::
     # Set up environment variables
     export FLASK_APP=proton
     export FLASK_DEBUG=1
