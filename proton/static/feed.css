@@ -80,6 +80,17 @@
   text-decoration: none;
 }
 
+/*     Pagination                                       */
+/* ---------------------------------------------------- */
+.feeds-container .feed-pagination {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #002cbb;
+}
+
 
 /*        Feed info                                     */
 /* ---------------------------------------------------- */

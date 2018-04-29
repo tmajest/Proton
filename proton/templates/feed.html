@@ -28,6 +28,18 @@
           </a>
         </div>
       {% endfor %}
+      <div class="feed-pagination">
+        <div class="prev-page">
+          {% if prev_skip >= 0 %}
+            <a href="{{ url_for('proton.index', skip=prev_skip) }}">Prev</a>
+          {% endif %}
+        </div>
+        <div class="next-page">
+          {% if next_skip and next_skip > 0 %}
+              <a href="{{ url_for('proton.index', skip=next_skip) }}">Next</a>
+          {% endif %}
+        </div>
+      </div>
     {% endif %}
   </div>
 </div>

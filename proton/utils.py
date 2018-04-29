@@ -1,5 +1,19 @@
+from flask import request
 from datetime import datetime
 from dateutil import tz, parser
+
+def parse_int_query(query_name):
+    """
+    Try to fetch and parse the query parameter as an int. 
+    Return None if unsuccessful.
+    """
+    try:
+        return int(request.args.get(query_name))
+    except ValueError:
+        return 0
+    except TypeError:
+        return 0
+
 
 def get_time_str(date):
     """
