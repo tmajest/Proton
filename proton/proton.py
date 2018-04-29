@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g, current_app, Blueprint, redirect
+from flask import render_template, g, Blueprint, abort
 from .feed import Feed
 from .utils import get_time_str
 from .provider import get_feed, get_feeds, get_entries

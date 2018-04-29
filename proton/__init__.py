@@ -24,7 +24,11 @@ def create_app(config=None):
     from .db_utils import init_app
     init_app(app)
 
-    from proton import proton
+    from . import proton
     app.register_blueprint(proton.bp)
+
+    from .errors import not_found, server_error
+    app.register_error_handler(404, not_found)
+    app.register_error_handler(500, server_error)
 
     return app

@@ -1,12 +1,14 @@
 {% block entry_panel %}
 <div class="feeds-panel-container">
-  <div class="feeds-header-container">
-    <h2>Your Feeds</h2>
-  </div>
-  {%- for feed in feeds -%}
-    <div class="feeds-panel-item">
-      <a href="{{ url_for('proton.feed_details', name=feed.name) }}">{{ feed.name }}</a>
+  {% if feeds %}
+    <div class="feeds-header-container">
+      <h2>Your Feeds</h2>
     </div>
-  {% endfor %}
+    {%- for feed in feeds -%}
+      <div class="feeds-panel-item">
+        <a href="{{ url_for('proton.feed_details', name=feed.name) }}">{{ feed.name }}</a>
+      </div>
+    {% endfor %}
+  {% endif %}
 </div>
 {% endblock %}
