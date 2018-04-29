@@ -1,5 +1,7 @@
 
-venv/
+**/venv/
 **/*.pyc
 **/*.db
 **.egg-info/
+**/instance/
+
