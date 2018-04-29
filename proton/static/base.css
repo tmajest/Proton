@@ -19,6 +19,26 @@ body {
   padding: 0px;
 }
 
+.content-container .content {
+    min-width: 550px;
+    max-width: 700px;
+    padding: 30px 40px;
+}
+
+.content .content-header {
+    padding-left: 8px;
+    margin-bottom: 24px;
+}
+
+.content .content-header p {
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #444;
+}
+
 .custom-error-container {
   padding: 30px;
   min-width: 550px;

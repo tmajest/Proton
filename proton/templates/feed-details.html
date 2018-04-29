@@ -2,15 +2,17 @@
 {% block content %}
 <div class="content">
   {% if feed and entries %}
-    <a href="{{ feed.site_link }}">
-      <div class="feed-header">
+    <div class="feed-details-container">
+      <div class="content-header">
+        <a href="{{ feed.site_link }}">
           <div class="feed-info">
             <h1>{{ feed.name }}</h2>
           </div>
-        <p>{{ feed.description }}</p>
+        <p class="subtitle">{{ feed.description }}</p>
+        </a>
       </div>
-    </a>
-    {% include "feed.html" %}
+      {% include "feed.html" %}
+    </div>
   {% endif %}
 </div>
 {% endblock %}

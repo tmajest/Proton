@@ -17,10 +17,12 @@
           <a href="{{ entry.link }}">
             <div class="entry-contents">
                 <h3>{{ entry.name }}</h3>
-                {% if entry.description %}
+                {% if entry.description | striptags %}
                   <div class="entry-description">
                       {{ entry.description | striptags }}
                   </div>
+                {% else %}
+                  <div style="padding: 0 0 10px 0"></div>
                 {% endif %}
             </div>
           </a>

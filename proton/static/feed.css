@@ -1,7 +1,3 @@
-.feeds-container {
-  padding: 20px;
-}
-
 .feeds-container .feed-container p {
   font-size: 16px;
   display: flex;
@@ -84,23 +80,19 @@
   text-decoration: none;
 }
 
-.content .feed-header {
-    min-width: 550px;
-    max-width: 700px;
-}
 
-.content .feed-header p {
-    font-size: 12px;
-    color: #444;
-    text-decoration: none;
-}
+/*        Feed info                                     */
+/* ---------------------------------------------------- */
 
-.content .feed-header h1 {
+.content .feed-details-container .content-header a {
   text-decoration: none;
-  color: #111113;
 }
 
-.content .feed-header:hover .feed-info h1 {
+.content .feed-details-container .content-header h1 {
+  color: #002cbb;
+}
+
+.content .feed-details-container .content-header:hover h1 {
   text-decoration: underline;
 }
 

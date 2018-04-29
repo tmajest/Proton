@@ -3,19 +3,3 @@
     min-height: 94vh;
 }
 
-.content {
-    padding: 30px 20px 40px 20px;
-}
-
-.content .feed-header {
-    padding-left: 28px;
-}
-
-.content .feed-header p {
-    margin-bottom: 4px;
-}
-
-.content .all-feeds-subtitle {
-    font-size: 12px;
-    color: #444;
-}
