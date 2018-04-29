@@ -1,6 +1,5 @@
 import sqlite3
 import click
-import pdb
 
 from flask import current_app, g
 from flask.cli import with_appcontext
@@ -28,11 +27,9 @@ def init_db():
     """ 
     Initialize the database.
     """
-    pdb.set_trace()
-    db_file = current_app.config["DATABASE_FILE"]
     db_schema = current_app.config["DATABASE_SCHEMA"]
 
-    db = get_db(db_file)
+    db = get_db()
     with current_app.open_resource(db_schema, mode='r') as f:
         db.cursor().executescript(f.read())
     db.commit()

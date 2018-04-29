@@ -4,4 +4,6 @@
 **/*.db
 **.egg-info/
 **/instance/
+**/.pytest_cache/
+init_env
 

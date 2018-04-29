@@ -21,7 +21,7 @@ def create_app(config=None):
     except OSError:
         pass
 
-    from .db_utils import init_app
+    from .db import init_app
     init_app(app)
 
     from . import proton

@@ -19,5 +19,8 @@ setup(
         'python-dateutil',
         'feedparser',
     ],
+    extras_require={
+        'test': ['pytest'],
+    },
 )
     

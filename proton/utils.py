@@ -5,7 +5,7 @@ from dateutil import tz, parser
 def parse_int_query(query_name):
     """
     Try to fetch and parse the query parameter as an int. 
-    Return None if unsuccessful.
+    Return 0 if unsuccessful.
     """
     try:
         return int(request.args.get(query_name))
@@ -13,7 +13,6 @@ def parse_int_query(query_name):
         return 0
     except TypeError:
         return 0
-
 
 def get_time_str(date):
     """

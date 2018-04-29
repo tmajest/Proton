@@ -2,7 +2,7 @@ from flask import g
 from dateutil import parser
 
 from .feed import Feed, FeedEntry
-from .db_utils import get_db
+from .db import get_db
 
 import feedparser
 
@@ -70,7 +70,6 @@ def get_entries(feeds):
                 or not entry_xml.get('link', ''):
                 continue
 
-            #pdb.set_trace()
             entry_name = entry_xml.title
             entry_link = entry_xml.link
             entry_description = entry_xml.get('summary', '')
