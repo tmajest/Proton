@@ -6,7 +6,7 @@ from proton import create_app
 from proton.db import init_db, get_db
 
 
-with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
+with open(os.path.join(os.path.dirname(__file__), 'testdata', 'data.sql'), 'rb') as f:
     _data_sql = f.read().decode('utf8')
 
 @pytest.fixture

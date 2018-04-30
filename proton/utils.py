@@ -14,6 +14,13 @@ def parse_int_query(query_name):
     except TypeError:
         return 0
 
+def get_datetime_now():
+    """
+    Get the current datetime object.
+    Method is used to help mock datetime.now in tests.
+    """
+    return datetime.now(tz.tzutc())
+
 def get_time_str(date):
     """
     Gets a string that represents how long it has been.

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+    <title>Valid RSS</title>
+    <link>https://valid-rss.com/</link>
+    <description>This is some valid RSS.</description>
+    <item>
+        <title>Entry 1</title>
+        <link>https://valid-rss.com/entries/1</link>
+        <description>Description 1</description>
+        <pubDate>Mon, 30 Apr 2018 04:00:00 -0000</pubDate>
+        <guid>https://valid-rss.com/entries/1</guid>
+    </item>
+    <item>
+        <title>Entry 2</title>
+        <link>https://valid-rss.com/entries/2</link>
+        <description>Description 2</description>
+        <pubDate>Mon, 30 Apr 2018 04:00:00 -0000</pubDate>
+        <guid>https://valid-rss.com/entries/2</guid>
+    </item>
+    <item>
+        <title>Entry 3</title>
+        <link>https://valid-rss.com/entries/3</link>
+        <description>Description 3</description>
+        <pubDate>Mon, 30 Apr 2018 04:00:00 -0000</pubDate>
+        <guid>https://valid-rss.com/entries/3</guid>
+    </item>
+</channel>
+</rss>

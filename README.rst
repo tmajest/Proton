@@ -5,7 +5,6 @@ The RSS and Atom aggregator built with Python, Flask, and SQLite3.
 Install
 -------
 Installation directions. Tested using Linux Mint 18.3.
-
 ::
 
     # Clone the repository
@@ -20,7 +19,7 @@ Installation directions. Tested using Linux Mint 18.3.
 
 Run
 ---
-
+To run, set up required flask environment variables, initialize the database, and run the flask app.
 ::
 
     # Set up environment variables
@@ -34,5 +33,16 @@ Run
     # Run the program
     flask run
 
-    
+Test
+----
+To test Proton, install test dependencies and then run pytest.
+::
+
+    # Install pytest
+    pip install -e .[test]
+
+    # Run tests
+    pytest
+
+
 
