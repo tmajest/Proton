@@ -1,4 +1,4 @@
-from flask import render_template, g, Blueprint, abort, request
+from flask import abort, Blueprint, g, render_template, request, url_for
 from .feed import Feed
 from .utils import parse_int_query, get_time_str
 from .provider import get_feed, get_feeds, get_entries
@@ -17,22 +17,6 @@ def get_skip():
     skip = 0 if skip < 0 else skip
     return skip - (skip % TAKE)
 
-def paginate(feeds):
-    """
-    Get paginated entries. Returns the next and previous values for pagination buttons.
-    """
-    skip = get_skip()
-
-    entries = get_entries(feeds)
-    entries.sort(key=lambda entry: entry.date, reverse=True)
-    paged_entries = entries[skip : skip + TAKE]
-
-    prev_skip = skip - TAKE
-    next_skip = 0 if skip + TAKE >= len(entries) else skip + TAKE
-
-    return paged_entries, prev_skip, next_skip
-
-
 @bp.route('/')
 def index():
     """
@@ -43,14 +27,23 @@ def index():
     feeds = get_feeds()
     feeds.sort(key=lambda feed: feed.name)
 
-    entries, prev_skip, next_skip = paginate(feeds)
+    skip = get_skip()
+    entries = get_entries(feeds)
+    entries.sort(key=lambda entry: entry.date, reverse=True)
+    paged_entries = entries[skip : skip + TAKE]
+
+    prev_url, next_url = '', ''
+    if skip > 0:
+        prev_url = url_for('proton.index', skip = skip - TAKE)
+    if skip + TAKE < len(entries):
+        next_url = url_for('proton.index', skip = skip + TAKE)
 
     return render_template(
         'index.html', 
         feeds=feeds, 
-        entries=entries,
-        prev_skip=prev_skip,
-        next_skip=next_skip,
+        entries=paged_entries,
+        prev_url=prev_url,
+        next_url=next_url,
         get_time_str=get_time_str)
 
 @bp.route('/feed/<name>')
@@ -66,14 +59,29 @@ def feed_details(name):
     all_feeds = get_feeds()
     all_feeds.sort(key=lambda feed: feed.name)
 
-    entries, prev_skip, next_skip = paginate([feed])
+    skip = get_skip()
+    entries = get_entries([feed])
+    entries.sort(key=lambda entry: entry.date, reverse=True)
+    paged_entries = entries[skip : skip + TAKE]
+
+    prev_url, next_url = '', ''
+    if skip > 0:
+        prev_url = url_for(
+            'proton.feed_details', 
+            skip = skip - TAKE,
+            name=name)
+    if skip + TAKE < len(entries):
+        next_url = url_for(
+            'proton.feed_details', 
+            skip = skip + TAKE,
+            name=name)
 
     return render_template(
         'feed-details.html',
         feed=feed,
         feeds=all_feeds,
-        entries=entries,
-        prev_skip=prev_skip,
-        next_skip=next_skip,
+        entries=paged_entries,
+        prev_url=prev_url,
+        next_url=next_url,
         get_time_str=get_time_str)
 

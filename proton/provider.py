@@ -49,7 +49,11 @@ def get_entries(feeds):
     """
     entries = []
     for feed in feeds:
-        feed_xml = feedparser.parse(feed.feed_link)
+
+        try:
+            feed_xml = feedparser.parse(feed.feed_link)
+        except:
+            continue
 
         # Only parse feeds with correct status code, feed details, and at least one feed entry
         if feed_xml == None \

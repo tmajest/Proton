@@ -1,0 +1,14 @@
+{% block pagination %}
+<div class="feed-pagination">
+  <div class="prev-page">
+    {% if prev_url %}
+      <a href="{{ prev_url }}">Prev</a>
+    {% endif %}
+  </div>
+  <div class="next-page">
+    {% if next_url %}
+        <a href="{{ next_url }}">Next</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
