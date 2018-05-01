@@ -4,10 +4,11 @@ import click
 from flask import current_app, g
 from flask.cli import with_appcontext
 
-def connect_db(path):
+def connect_db():
     """ 
     Connect to the given database and return a connection to it.
     """
+    path = current_app.config["DATABASE_FILE"]
     rv = sqlite3.connect(path)
     rv.row_factory = sqlite3.Row
     return rv
@@ -18,8 +19,7 @@ def get_db():
     stores it in the g object.
     """
     if 'sqlite_db' not in g:
-        path = current_app.config["DATABASE_FILE"]
-        g.sqlite_db = connect_db(path)
+        g.sqlite_db = connect_db()
 
     return g.sqlite_db
 
