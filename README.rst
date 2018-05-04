@@ -11,6 +11,7 @@ Installation directions. Tested using Linux Mint 18.3.
     git clone https://github.com/tonymajestro/Proton.git
 
     # Create virtual environment
+    cd Proton
     python3 -m venv venv
     . venv/bin/activate
 

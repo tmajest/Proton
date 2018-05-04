@@ -5,29 +5,27 @@ import os
 from proton import create_app
 from proton.db import init_db, get_db
 
-
-with open(os.path.join(os.path.dirname(__file__), 'testdata', 'data.sql'), 'rb') as f:
-    _data_sql = f.read().decode('utf8')
-
 @pytest.fixture
 def app():
     """
     Create a proton app to be used for testing.
     """
-    fd, path = tempfile.mkstemp()
+    fd, db_file = tempfile.mkstemp()
+    schema_file = os.path.join(os.path.dirname(__file__), 'testdata', 'data.sql')
 
     app = create_app({
         'TESTING': True,
-        'DATABASE_FILE': path})
+        'DATABASE_FILE': db_file,
+        'DATABASE_SCHEMA': schema_file
+    })
 
     with app.app_context():
         init_db()
-        get_db().executescript(_data_sql)
 
     yield app
 
     os.close(fd)
-    os.unlink(path)
+    os.unlink(db_file)
 
 @pytest.fixture
 def client(app):
